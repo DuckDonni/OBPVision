@@ -9,10 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "npm:rolldown-vite@7.1.14"
-  },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.1.14"
+    "vite": "^5.4.0"
   },
   "dependencies": {
     "@owlbear-rodeo/sdk": "^3.1.0"
