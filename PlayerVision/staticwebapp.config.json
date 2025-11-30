@@ -4,6 +4,22 @@
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization"
   },
+  "routes": [
+    {
+      "route": "/manifest.json",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "route": "/icon.svg",
+      "headers": {
+        "Content-Type": "image/svg+xml",
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  ],
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
