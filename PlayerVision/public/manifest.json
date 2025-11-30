@@ -4,8 +4,8 @@
   "manifest_version": 1,
   "action": {
     "title": "Player Vision",
-    "icon": "/icon.svg",
-    "popover": "/",
+    "icon": "https://lemon-meadow-01c64910f.3.azurestaticapps.net/icon.svg",
+    "popover": "https://lemon-meadow-01c64910f.3.azurestaticapps.net/",
     "height": 600,
     "width": 400
   }
