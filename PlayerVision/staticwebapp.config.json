@@ -3,5 +3,23 @@
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization"
+  },
+  "routes": [
+    {
+      "route": "/manifest.json",
+      "rewrite": "/manifest.json"
+    },
+    {
+      "route": "/icon.svg",
+      "rewrite": "/icon.svg"
+    },
+    {
+      "route": "/*",
+      "rewrite": "/index.html"
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/manifest.json", "/icon.svg", "/*.{js,css,png,jpg,jpeg,gif,svg,woff,woff2,ttf,eot}"]
   }
 }
