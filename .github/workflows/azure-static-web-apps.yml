@@ -22,30 +22,34 @@ jobs:
           submodules: true
           lfs: false
       
-      - name: Verify directory structure
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        working-directory: ./PlayerVision
+        run: npm ci
+      
+      - name: Build application
+        working-directory: ./PlayerVision
+        run: npm run build
+      
+      - name: Verify build output
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents:"
-          ls -la
-          echo "PlayerVision directory:"
-          ls -la PlayerVision/
-          echo "PlayerVision package.json:"
-          cat PlayerVision/package.json
+          echo "Build output:"
+          ls -la PlayerVision/dist/
       
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
-        env:
-          SKIP_APP_BUILD: false
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "PlayerVision"
+          skip_app_build: true
+          app_artifact_location: "PlayerVision/dist"
           api_location: ""
-          output_location: "dist"
-          app_build_command: "npm run build"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
